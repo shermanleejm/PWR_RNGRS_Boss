@@ -79,7 +79,7 @@
         <form action='' method='$_POST'>
             <input type="submit" name='placebid' value='Place a Bid'> | 
             <input type="submit" name='dropbid' value='Drop a Bid'> |
-            <input type="submit" name='bid' value='Drop a Section'>
+            <input type="submit" name='dropsection' value='Drop a Section'>
         </form>
     </body>
 </div>
