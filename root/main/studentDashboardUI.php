@@ -39,7 +39,7 @@
 
         <table>
             <tr>
-                <th colspan=5>Class timetable</th>
+                <th colspan=6>Class timetable</th>
             <tr>
             <tr>
                 <td></td>
