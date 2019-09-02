@@ -20,15 +20,11 @@ if (isset($_FILES["data"])) {
 
     if (empty($errors)) {
         echo "Successful Upload!";
-        if (!file_exists('./csvfiles')) {
-            mkdir('./csvfiles', 0755, true);
-        }
-        $file = "csvfiles/" + $file_name;
+        $file = "../csvfiles/" + $file_name;
         move_uploaded_file($file_tmp, $file);
     }
     else {
-        $_SESSION["errors"] = array();
-        $_SESSION["errors"][]= $errors;
+        $_SESSION["errors"] = $errors;
         header("Location:admin.html");
     }   
 }

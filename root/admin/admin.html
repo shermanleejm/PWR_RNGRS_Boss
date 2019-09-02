@@ -6,13 +6,6 @@
 <?php
 session_start();
 var_dump($_SESSION["errors"]);
-if (!empty($_SESSION["errors"])) {
-    foreach ($_SESSION["errors"] as $thing) {
-        echo "$thing";
-    }
-}
-$_SESSION["errors"] = [];
-
 ?>
 
 <body>
