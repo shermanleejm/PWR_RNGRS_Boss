@@ -1,23 +1,19 @@
 <?php
 
-// DO NOT MODIFY THIS FILE
-// UNLESS YOU ARE USING MAMP (then you may need to specify a Port)
-
 class ConnectionManager {
-
     public function getConnection() {
-        $servername = 'localhost';
-        $username = 'root';
-        $password = '';
-        $dbname = 'boss';
-        $port = 3306;
+        $credentials = parse_ini_file( ($_SERVER["DOCUMENT_ROOT"] . "/../private/database.ini") ) ;
         
-        // Create connection
-        $conn = new PDO("mysql:host=$servername;dbname=$dbname;port=$port", $username, $password);     
-        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); // if fail, exception will be thrown
+        $conn = mysqli_connect($credentials["host"], $credentials["username"], $credentials["password"], $credentials["dbname"]);
 
-        // Return connection object
         return $conn;
     }
-
 }
+
+// $dao = new ConnectionManager();
+// $pdo = $dao->getConnection();
+// $sql = "DELETE table table1";
+// $stmt = $pdo->prepare($sql);
+// $stmt->execute();
+
+?>
