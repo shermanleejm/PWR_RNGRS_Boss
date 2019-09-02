@@ -1,10 +1,14 @@
 <?php
 session_start();
-require_once "./ConncetionManager.php";
+// require_once "../ConnectionManager.php";
 
 #MAC connection
-$conn = new PDO( "mysql:host=localhost;dbname=boss", "root", "root");
-$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+$pdo = new PDO( "mysql:host=localhost;dbname=boss;port=3306", "root", "root");
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} 
+
+$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 #windows connection
 // $conn = new ConnectionManager();
@@ -19,6 +23,8 @@ $sql = "
         username varchar(255) not null PRIMARY KEY,
         password varchar(255) not null
     );
+
+    INSERT INTO users VALUES (:username, :password);
 
     DROP TABLE IF EXISTS bid ;
     CREATE TABLE bis (
@@ -74,13 +80,13 @@ $sql = "
 
     ";
 
-$stmt = $conn->prepare($sql);
-// $stmt->bindParam(":username", $username, PDO::PARAM_STR);
-// $stmt->bindParam(":password", $hash, PDO::PARAM_STR);
+$stmt = $pdo->prepare($sql);
+$stmt->bindParam(":username", $username, PDO::PARAM_STR);
+$stmt->bindParam(":password", $hash, PDO::PARAM_STR);
 $stmt->execute();
 
 echo "created successfully";
 
 $stmt->close();
-$conn->close();
+$pdo->close();
 ?>
