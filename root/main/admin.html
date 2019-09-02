@@ -1,6 +1,27 @@
+<!DOCTYPE html>
 <html>
 
 <h1 align=center>Hello Administrator</h1>
-<h2 align=center>We are currently doing some works please be patient!</h2>
+
+<?php
+session_start();
+var_dump($_SESSION["errors"]);
+if (!empty($_SESSION["errors"])) {
+    foreach ($_SESSION["errors"] as $thing) {
+        echo "$thing";
+    }
+}
+$_SESSION["errors"] = [];
+
+?>
+
+<body>
+      
+    <form align=center action="processfile.php" method="POST" enctype="multipart/form-data">
+       <input type="file" name="data" />
+       <input type="submit" name="submit"/>
+    </form>
+
+ </body>
 
 </html>
