@@ -6,34 +6,14 @@
         # 2/9/2019: pls note that nothing here is working yet -Sue 
         #
         ###########################################################################################
+
+        include_once('../shared/css.html')
 ?>
 
 <!DOCTYPE html>
 <html><div align='center'>
     <head>
-        <meta charset="utf-8">
         <title>School timetable</title>
-        <style>
-        html {
-        font-family: sans-serif;
-        }
-        table {
-        border-collapse: collapse;
-        border: 2px solid rgb(200,200,200);
-        letter-spacing: 1px;
-        font-size: 0.8rem;
-        }
-        td, th {
-        border: 1px solid rgb(190,190,190);
-        padding: 10px 20px;
-        }
-        td {
-        text-align: center;
-        }
-        caption {
-        padding: 10px;
-        }
-        </style>
     </head>
 
     <body>    
@@ -78,9 +58,8 @@
         </table>
         <br>
         <br>
-        <form action='' method='$_POST'>
-            <input type="submit" name='placebid' value='Place a Bid'> | 
-            <input type="submit" name='dropbid' value='Drop a Bid'> |
+        <form action='studentDashboardUI.php' method='$_POST'>
+            <input type="submit" formaction='biddingui.php' value='Manage Your Bids'> | 
             <input type="submit" name='dropsection' value='Drop a Section'>
         </form>
     </body>
