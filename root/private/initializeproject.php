@@ -33,9 +33,9 @@ $sql = "
     CREATE TABLE bid (
         userid varchar(255) not null,
         amount int not null,
-        sectioncode varchar(10) not null,
+        coursecode varchar(10) not null,
         section varchar(3) not null,
-        primary key (userid, sectioncode)
+        primary key (userid, coursecode)
     );
 
     DROP TABLE IF EXISTS courseCompleted ;
