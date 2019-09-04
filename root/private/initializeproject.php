@@ -27,7 +27,7 @@ $sql = "
     INSERT INTO users VALUES (:username, :password);
 
     DROP TABLE IF EXISTS bid ;
-    CREATE TABLE bis (
+    CREATE TABLE bid (
         userid varchar(255) not null PRIMARY KEY,
         amount int not null,
         code varchar(10) not null,
