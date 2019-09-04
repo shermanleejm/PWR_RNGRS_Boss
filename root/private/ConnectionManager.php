@@ -5,6 +5,10 @@
 
 class ConnectionManager {
 
+    public function __construct(){
+
+    }
+
     public function getConnection() {
         $servername = 'localhost';
         $username = 'root';
