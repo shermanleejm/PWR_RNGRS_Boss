@@ -1,6 +1,6 @@
 <?php
 
-## Note: I adjusted the primary key for Bid table -Sue (4/9/2019)
+## Note: I adjusted the primary key for Bid table and also column name for course code -Sue (4/9/2019)
 
 session_start();
 // require_once "../ConnectionManager.php";
@@ -33,9 +33,9 @@ $sql = "
     CREATE TABLE bid (
         userid varchar(255) not null,
         amount int not null,
-        code varchar(10) not null,
-        section varchar(3) not null
-        primary key (userid, code)
+        sectioncode varchar(10) not null,
+        section varchar(3) not null,
+        primary key (userid, sectioncode)
     );
 
     DROP TABLE IF EXISTS courseCompleted ;
