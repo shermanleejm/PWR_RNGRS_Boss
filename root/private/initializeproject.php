@@ -57,8 +57,9 @@ $sql = "
 
     DROP TABLE IF EXISTS prerequisite ;
     CREATE TABLE prerequisite (
-        course varchar(10) not null PRIMARY KEY,
-        prerequisite varchar(10) not null
+        course varchar(10) not null,
+        prerequisite varchar(10) not null,
+        primary key(course, prerequisite)
     );
 
     DROP TABLE IF EXISTS section ;
